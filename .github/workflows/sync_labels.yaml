@@ -1,31 +1,27 @@
-name: ♻️ Sync Labels
-
-on:
+name: "\u267B\uFE0F Sync Labels"
+'on':
   push:
     paths:
-      - .github/labels.yml
+    - .github/labels.yml
     branches:
-      - main
-  workflow_dispatch:
-
+    - main
+  workflow_dispatch: null
 jobs:
   labels:
-    name: ♻️ Sync labels
-    runs-on: ubuntu-20.04
+    name: "\u267B\uFE0F Sync labels"
+    runs-on: ubuntu-latest
     permissions:
       issues: write
       contents: read
     steps:
-      - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@v4
-
-      - name: 🚀 Run Label Sync
-        uses: srealmoreno/label-sync-action@v2
-        with:
-          config-file: https://raw.githubusercontent.com/Flutter-Journey/.github/main/.github/labels.yml
-
-      - name: 🚀 Run Label Sync (Local)
-        if: ${{ hashFiles('.github/labels.yml') }}
-        uses: srealmoreno/label-sync-action@v2
-        with:
-          config-file: .github/labels.yml
+    - name: "\u2935\uFE0F Check out code from GitHub"
+      uses: actions/checkout@v4
+    - name: "\U0001F680 Run Label Sync"
+      uses: srealmoreno/label-sync-action@v2
+      with:
+        config-file: https://raw.githubusercontent.com/Flutter-Journey/.github/main/.github/labels.yml
+    - name: "\U0001F680 Run Label Sync (Local)"
+      if: ${{ hashFiles('.github/labels.yml') }}
+      uses: srealmoreno/label-sync-action@v2
+      with:
+        config-file: .github/labels.yml
